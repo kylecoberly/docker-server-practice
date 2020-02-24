@@ -1,0 +1,11 @@
+{
+  "name": "compose-server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-modules app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
