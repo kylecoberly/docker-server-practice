@@ -75,7 +75,7 @@ sudo docker build -t docker-server .
 
 > Docker requires `sudo` by default because of the control it needs over the file system. If you'd like to not do this, create a `docker` user group and add yourself to it.
 
-If we want to unload the stuff shipping container and plug it in, we can run it with this command:
+If we want to unload the shipping container and plug it in, we can run it with this command:
 
 ```
 # Hey Docker, run the image called `docker-server`
@@ -88,12 +88,16 @@ sudo docker run -d -p 4000:80 docker-server
 
 If we go to `http://localhost:4000` in your browser, we should see a JSON response coming back from the server. We don't even need Node installed on your computer for this to work!
 
-This will run the server until you tell it to stop. To stop the server, run `sudo docker kill the-first-few-characters-of-the-container-id`. For example:
+This will run the server until you tell it to stop. To stop the server, run `sudo docker kill the-first-few-characters-of-the-container-id`. For example, if you saw:
 
 ```
 $ sudo docker run -d -p 4000:80 docker-server
 db39a6a0907985652e3e00fad050efc3a228920eb8bb4f2c30506846c7c4cf98
+```
 
+Then you can kill your container by running:
+
+```
 $ sudo docker kill db3
 ```
 
@@ -110,10 +114,19 @@ Now that you can run your server locally, let's take advantage of how easy it is
 
 ### One-time App Setup
 
-* `heroku create app-name-goes-here`
-* `heroku stack:set container`
+Let's create a new app:
 
-This creates the app, and tells it that we'll be using docker containers instead of any of Heroku's built-in "buildpacks". We still need to tell Heroku how to build and run our app:
+```bash
+heroku create app-name-goes-here
+```
+
+And then tell it that we'll be using docker containers instead of any of Heroku's built-in "buildpacks".
+
+```bash
+heroku stack:set container
+```
+
+We still need to tell Heroku how to build and run our app. Here's what we want to say:
 
 ```
 # Hey Heroku,
