@@ -38,7 +38,7 @@ Anyone who has the Docker image can run it with Docker, and it will work the sam
 
 ## Follow Along
 
-First, make sure you have [Docker installed](https://www.docker.com/products/docker-desktop).
+First, make sure you have [Docker installed](https://www.docker.com/products/docker-desktop). Clone down this repo and do all of the following instructions in here.
 
 We want to load the container like this:
 
