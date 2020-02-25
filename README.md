@@ -20,9 +20,9 @@ Everything works locally. You push your repo to Heroku and womp womp- immediate 
 
 Docker is a way to bundle up an app with all the things that are needed to make it run, like languages and frameworks. Everyone that can run Docker--you, your coworkers, Heroku, AWS, etc.-- will then run the app in the exact same way.
 
-_What's up with the "container" thing?_
+> _What's up with the "container" thing?_
 
-_Up until the 1950's, there wasn't a standard way to transport cargo. This was a problem because loading and unloading ships took days and required a custom solution every time, and even then you had to custom load them into trucks to move them inland. Someone who owned a trucking company bought a shipping company, and came up with a standard format for "containers" that could be loaded and unloaded in a standard way on both trucks and ships. Docker works the same way: If you can fill up a standard container, anyone that knows how to work with containers can take your container too without worrying about what the contents are._
+> _Up until the 1950's, there wasn't a standard way to transport cargo. This was a problem because loading and unloading ships took days and required a custom solution every time, and even then you had to custom load them into trucks to move them inland. Someone who owned a trucking company bought a shipping company, and came up with a standard format for "containers" that could be loaded and unloaded in a standard way on both trucks and ships. Docker works the same way: If you can fill up a standard container, anyone that knows how to work with containers can take your container too without worrying about what the contents are._
 
 Let's start with a Dockerfile, which is a set of instructions on how to setup a computer to run the app. We can think of it like a pick list for a company to load up a shipping container.
 
@@ -61,12 +61,13 @@ RUN npm ci
 CMD npm start
 ```
 
-Add a file called `Dockerfile` (no extension) to the root of the project and copy this into it.
+Add a file called `Dockerfile` (no extension) to the root of the project and copy that into it.
 
 Then, we pack stuff into the container by building it into an image:
 
 ```bash
-# Hey Docker, can you pack up a container for me named "docker-server" based on the picking list in this folder?
+# Hey Docker, can you pack up a container for me
+# named "docker-server" based on the picking list in this folder?
 sudo docker build -t docker-server .
 ```
 
@@ -76,7 +77,9 @@ sudo docker build -t docker-server .
 If we want to unload the stuff shipping container and plug it in, we can run it with this command:
 
 ```
-# Hey Docker, run the image called `docker-server` in the background, and whatever happens on our port 4000 should be sent to its port 80.
+# Hey Docker, run the image called `docker-server`
+# in the background, and whatever happens on
+# our port 4000 should be sent to its port 80.
 sudo docker run -d -p 4000:80 docker-server
 ```
 
