@@ -61,9 +61,9 @@ RUN npm ci
 CMD npm start
 ```
 
-Add a file called `Dockerfile` (no extension) to the root of the project and copy that into it.
+Let's add a file called `Dockerfile` (no extension) to the root of the project and copy that into it.
 
-Then, we pack stuff into the container by building it into an image:
+Then, let's pack stuff into the container by building it into an image:
 
 ```bash
 # Hey Docker, can you pack up a container for me
@@ -88,7 +88,7 @@ sudo docker run -d -p 4000:80 docker-server
 
 If we go to `http://localhost:4000` in your browser, we should see a JSON response coming back from the server. We don't even need Node installed on your computer for this to work!
 
-This will run the server until you tell it to stop. To stop the server, run `sudo docker kill the-first-few-characters-of-the-container-id`. For example, if you saw:
+This will run the server until you tell it to stop. To stop the server, run `sudo docker kill the-first-few-characters-of-the-container-id`. The container ID is returned when you run a Docker command with `-d`, and you can also find it with `sudo docker container ls`. For example, if you saw:
 
 ```
 $ sudo docker run -d -p 4000:80 docker-server
@@ -100,8 +100,6 @@ Then you can kill your container by running:
 ```
 $ sudo docker kill db3
 ```
-
-The container ID is returned when you run a Docker command with `-d`, and you can also find it with `sudo docker container ls`.
 
 ## Deployment
 
