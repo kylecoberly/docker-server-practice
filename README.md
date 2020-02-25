@@ -22,19 +22,19 @@ Docker is a way to bundle up an app with all the things that are needed to make 
 
 _What's up with the "container" thing?_
 
-_Up until the 1950's, there wasn't a standard way to transport cargo. This was a problem because loading and unloading ships took days and required a custom solution every time, and even then you had to load them into trucks to move them inland. Someone who owned a trucking company bought a shipping company, and came up with a standard format for "containers" that could be loaded and unloaded in a standard way on both trucks and ships. Docker works the same way: If you can fill up a standard container, anyone that knows how to work with containers can take your container too without worrying about what the contents are._
-
-![Dockerfile](assets/dockerfile.png)
+_Up until the 1950's, there wasn't a standard way to transport cargo. This was a problem because loading and unloading ships took days and required a custom solution every time, and even then you had to custom load them into trucks to move them inland. Someone who owned a trucking company bought a shipping company, and came up with a standard format for "containers" that could be loaded and unloaded in a standard way on both trucks and ships. Docker works the same way: If you can fill up a standard container, anyone that knows how to work with containers can take your container too without worrying about what the contents are._
 
 Let's start with a Dockerfile, which is a set of instructions on how to setup a computer to run the app. We can think of it like a pick list for a company to load up a shipping container.
 
-![Docker build](assets/docker-build.png)
+![Dockerfile](assets/dockerfile.png)
 
 With a Dockerfile in hand, we can "build" the file into a a Docker image. This is like packing up a shipping container with all the things specified in pick list.
 
-![Docker run](assets/docker-run.png)
+![Docker build](assets/docker-build.png)
 
 Anyone who has the Docker image can run it with Docker, and it will work the same way every time. This is like unloading the container and plugging in everything inside of it.
+
+![Docker run](assets/docker-run.png)
 
 ## Follow Along
 
