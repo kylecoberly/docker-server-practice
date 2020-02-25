@@ -1,4 +1,4 @@
-# Building a Simple API with Docker
+# Building and Deploying a Simple API with Docker
 
 ## The Problem
 
