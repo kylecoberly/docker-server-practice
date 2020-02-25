@@ -14,7 +14,7 @@ Everything works locally. You push your repo to Heroku and womp womp- immediate 
 
 ### Containers to the Rescue
 
-`import`/`export` was added to node in version 12. If you, your teammates, or your server are using slightly different versions, you will have a difficult to diagnose problem on your hands.
+`import`/`export` was added to node in version 12. If you, your teammates, or your server are using slightly different versions, you are about to lose a few hours figuring out what happened and getting everyone on the same version. Luckily, containers can abstract away things like installed software versions so that anything that runs containers will run _your_ container the same.
 
 ## Follow Along
 
@@ -22,7 +22,7 @@ Add a file called `Dockerfile` (no extension) to the root of your project. This 
 
 ```docker
 # To build this container, you need...
-# A linux instance with node 12 preinstalled
+# A computer with node 12 preinstalled
 # Then copy all the files from this folder to `/app` inside the container
 # Then, inside the container, `cd` into the `/app` directory
 # Then, insider the container, run `npm ci` to install dependencies
@@ -39,14 +39,14 @@ RUN npm ci
 CMD npm start
 ```
 
-Then build the Dockerfile into an image:
+Then, we actually pack stuff into the container:
 
 ```bash
 # Hey Docker, can you pack up a container for me named "docker-server" based on the picking list in this folder?
 sudo docker build -t docker-server .
 ```
 
-This is like loading up the shipping container with our app. If we want to see what it's going to look like when someone "unloads" the shipping container, we can run it with this command:
+If we want to see what it's going to look like when someone "unloads" the shipping container, we can run it with this command:
 
 ```
 # Hey docker, run the image called `docker-server` in the background, and whatever happens on our port 4000 should be sent to its port 80.
