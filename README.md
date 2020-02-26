@@ -172,7 +172,15 @@ RUN bundle install
 CMD rails s --binding 0.0.0.0 # Rails needs this binding to work with Docker
 ```
 
-Or for a Python app, something like this:
+Additionally, make sure that you've:
+* Built the Dockerfile and given it a unique name
+* Mapped the apps porots correctly! `rails s` starts on port 3000, so the `docker run` command for that might look like this:
+
+```bash
+sudo docker run -d -p 4000:3000 my-rails-docker-image
+```
+
+Or for a Python app, your Dockerfile might look like this:
 
 ```docker
 FROM python:3
@@ -181,3 +189,5 @@ WORKDIR /app
 RUN pip install
 CMD python app.js
 ```
+
+Different platforms have different quirks with Docker. If something doesn't work right away, you're probably not the first person to struggle with it. Read the errors, look them up, and ask around!
