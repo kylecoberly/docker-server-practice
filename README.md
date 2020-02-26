@@ -51,7 +51,7 @@ We want to load the container like this:
 # Then, whenenver you run this container, run `npm start`
 ```
 
-In Dockerese, this looks like this:
+In "Dockerese", this looks like this:
 
 ```docker
 FROM node:12
@@ -61,7 +61,7 @@ RUN npm ci
 CMD npm start
 ```
 
-Let's add a file called `Dockerfile` (no extension) to the root of the project and copy that into it.
+Let's add a file called `Dockerfile` (no extension) to the root of the project and copy the above "Dockerese" into it.
 
 Then, let's pack stuff into the container by building it into an image:
 
@@ -144,6 +144,40 @@ run:
   web: npm start
 ```
 
+> NOTE: YAML files don't allow tabs. Make sure those indentations are spaces!
+
 ### Deployment
 
 Run `git push heroku master`, and in a short while our app will be running publicly on Heroku in an identical environment to the one we ran locally!
+
+## Next Steps
+
+See if you can get this process to work on one of your APIs. This is the Dockerfile we used:
+
+```docker
+FROM node:12
+COPY . /app
+WORKDIR /app
+RUN npm ci
+CMD npm start
+```
+
+Note that you may need to modify this for your app. For example, for a Rails app, we might do something like this:
+
+```docker
+FROM ruby:2.6
+COPY . /app
+WORKDIR /app
+RUN bundle install
+CMD rails s --binding 0.0.0.0 # Rails needs this binding to work with Docker
+```
+
+Or for a Python app, something like this:
+
+```docker
+FROM python:3
+COPY . /app
+WORKDIR /app
+RUN pip install
+CMD python app.js
+```
