@@ -174,7 +174,7 @@ CMD rails s --binding 0.0.0.0 # Rails needs this binding to work with Docker
 
 Additionally, make sure that you've:
 * Built the Dockerfile and given it a unique name
-* Mapped the apps porots correctly! `rails s` starts on port 3000, so the `docker run` command for that might look like this:
+* Mapped the apps ports correctly! `rails s` starts on port 3000, so the `docker run` command for that might look like this:
 
 ```bash
 sudo docker run -d -p 4000:3000 my-rails-docker-image
